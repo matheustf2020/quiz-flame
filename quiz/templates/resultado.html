@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Resultado do Quiz{% endblock %}
+
+{% block content %}
+<h1>🎉 Fim do Quiz!</h1>
+
+<p class="pontuacao-final">
+    Sua pontuação final foi: <strong>{{ pontuacao }}</strong> ponto{{ pontuacao|pluralize }}
+</p>
+
+<div class="botoes-centro">
+    <a href="{% url 'pergunta' 1 %}">
+        <button class="botao-responder">Refazer o Quiz</button>
+    </a>
+</div>
+
+<hr>
+
+<h2 class="titulo-ranking">🏆 Ranking - Top 5</h2>
+<ol class="lista-ranking">
+  {% for r in ranking %}
+    <li>
+      <span class="nome-jogador">{{ r.nome }}</span> — 
+      <span class="pontuacao-jogador">{{ r.pontuacao }} pts</span>
+    </li>
+  {% empty %}
+    <p>Nenhum resultado ainda.</p>
+  {% endfor %}
+</ol>
+{% endblock %}

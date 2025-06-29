@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Digite seu nome{% endblock %}
+
+{% block content %}
+<h1>📝 Antes de ver o resultado...</h1>
+
+<form method="POST" class="form-nome">
+    {% csrf_token %}
+    
+    <label for="nome">Seu nome:</label>
+    <input type="text" name="nome" id="nome" placeholder="Digite seu nome aqui..." required>
+
+    <button type="submit" class="botao-responder">Ver Resultado</button>
+</form>
+{% endblock %}

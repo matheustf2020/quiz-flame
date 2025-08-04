@@ -39,3 +39,6 @@ quiz-flame/
 ```bash
 git clone https://github.com/matheustf2020/quiz-flame.git
 cd quiz-flame
+
+
+Atualização V2

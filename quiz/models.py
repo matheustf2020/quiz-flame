@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Pergunta(models.Model):
     texto = models.CharField(max_length=150)
@@ -16,3 +17,13 @@ class Resultado(models.Model):
 
     def __str__(self):
         return f'{self.nome} - {self.pontuacao} pontos'
+    
+class Usuario(AbstractUser):
+    pontuacao_total = models.IntegerField(default=0)
+    nivel_atual = models.IntegerField(default=0)
+    quantidade_quizzes = models.IntegerField(default=0)
+    ultima_pontuacao = models.IntegerField(default=0)
+    data_nascimento = models.IntegerField(default=0)
+    bio = models.TextField(blank=True)
+
+    

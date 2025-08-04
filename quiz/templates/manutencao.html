@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div style="text-align: center; margin-top: 50px;">
+    <h1>Manutenção do Quiz</h1>
+    <p>Você pode apagar todas as perguntas e resetar os IDs com segurança.</p>
+
+    <form method="post" action="{% url 'resetar_perguntas' %}"> {% csrf_token %}
+      <button type="submit" style="padding: 10px 20px; font-size: 16px;">
+        ⚠️ Resetar Banco de Perguntas
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

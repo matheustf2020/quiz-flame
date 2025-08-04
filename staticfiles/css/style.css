@@ -1,0 +1,95 @@
+/* Fonte e base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* Caixa principal */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Título da pergunta */
+h1, h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+
+/* Alternativas */
+.alternativas {
+    margin-bottom: 20px;
+}
+
+.alternativa {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 18px;
+    background: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.alternativa:hover {
+    background: #e0e0e0;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Botão */
+.botao-responder {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.botao-responder:hover {
+    background-color: #0056b3;
+}
+
+/* Mensagens de acerto/erro */
+.mensagem {
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Pontuação */
+.pontuacao {
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #444;
+    font-weight: bold;
+}

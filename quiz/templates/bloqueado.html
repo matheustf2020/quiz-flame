@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container mt-3">
 <h1>⏳ Espere um pouco!</h1>
 <p>Você só pode jogar novamente em {{ minutos }} minutos.</p>
 <div class="botoes-centro">
+</div>
     <a href="{% url 'bem_vindo'%}">
       <button class="botao-responder">Voltar à página inicial</button>
     </a>

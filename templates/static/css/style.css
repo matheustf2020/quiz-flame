@@ -93,3 +93,37 @@ input[type="radio"] {
     color: #444;
     font-weight: bold;
 }
+
+
+/* Personalização das mensagens do Django */
+.alert {
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 15px;
+  backdrop-filter: blur(2px);
+}
+
+/* Sobrescrevendo o fundo suavemente */
+.alert-success {
+  background-color: rgba(11, 236, 131, 0.89);
+  color: #198754;
+  border: 1px solid #198754;
+}
+
+.alert-danger, .alert-error {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.alert-info {
+  background-color: rgba(13, 202, 240, 0.15);
+  color: #0dcaf0;
+  border: 1px solid #0dcaf0;
+}

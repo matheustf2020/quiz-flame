@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="w-100" style="max-width: 1000px;">
+    <div class="card shadow-lg border-0 rounded-4">
+
+      <!-- Cabeçalho do Painel -->
+      <div class="card-header bg-primary text-white rounded-top-4 text-center py-3">
+        <h3 class="mb-0">🎮 Painel do Jogador</h3>
+        <p class="mb-0">Bem-vindo, <strong>{{ usuario.username }}</strong></p>
+      </div>
+
+      <!-- Corpo com estatísticas -->
+      <div class="card-body px-4 py-4">
+        <div class="row g-4 text-center">
+
+          <div class="col-md-6">
+            <h6 class="text-muted">Pontuação Total</h6>
+            <h3 class="text-success">{{ usuario.pontuacao_total }}</h3>
+          </div>
+
+          <div class="col-md-6">
+            <h6 class="text-muted">Última Pontuação</h6>
+            <h3 class="text-info">{{ usuario.ultima_pontuacao }}</h3>
+          </div>
+
+          <div class="col-md-6">
+            <h6 class="text-muted">Quizzes Respondidos</h6>
+            <h3>{{ usuario.quantidade_quizzes }}</h3>
+          </div>
+
+          <div class="col-md-6">
+            <h6 class="text-muted">Nível Atual</h6>
+            <h3>{{ usuario.nivel_atual }}</h3>
+          </div>
+
+          {% if usuario.bio %}
+          <div class="col-12">
+            <h6 class="text-muted">Bio</h6>
+            <p class="mb-0">{{ usuario.bio }}</p>
+          </div>
+          {% endif %}
+
+        </div>
+
+        <!-- Botões -->
+        <div class="mt-4 text-center">
+          <a href="{% url 'pergunta' 1 %}" class="btn btn-success btn-lg me-2">Começar Novo Quiz</a>
+          <a href="{% url 'sair' %}" class="btn btn-outline-danger btn-lg">Sair</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ranking -->
+<div class="mt-4">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+      <h4 class="mb-0">🏆 Ranking Geral – Top 5</h4>
+    </div>
+
+    <div class="card-body px-4 py-4">
+      <table class="table table-striped table-hover text-center mb-0">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>#</th>
+            <th>Usuário</th>
+            <th>Pontuação Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for u in ranking %}
+          <tr {% if u.username == user.username %} class="table-success" {% endif %}>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.pontuacao_total }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="3">Nenhuma pontuação registrada ainda.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+{% endblock %}

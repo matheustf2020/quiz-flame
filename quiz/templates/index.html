@@ -4,22 +4,51 @@
 {% block title %}Início do Quiz{% endblock %}
 
 {% block content %}
-<div style="text-align: center;">
-  <img src="{% static 'img/flamesertao.png' %}" alt="Logo Flame Sertão" style="width: 100px; margin-bottom: 10px; border-radius: 8px;">
-</div>
-<div class="index-container">
-  <h1>📖 Quiz Bíblico - Flame Sertao</h1>
-    <center>
-  <p>Bem-vindo ao Quiz Flame! <br>
-  </center>
-    Teste seus conhecimentos sobre as cartas de Paulo com perguntas cuidadosamente selecionadas.</p>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="w-100" style="max-width: 1000px;">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: rgba(0, 123, 255, 0.1);">
 
-  <p>Cada acerto vale 10 pontos. Ao final, veja sua pontuação e entre no ranking dos melhores!</p>
+      <!-- Logo -->
+      <div class="text-center mb-3">
+        <img src="{% static 'img/flamesertao.png' %}" alt="Logo Flame Sertão" style="width: 100px; border-radius: 8px;">
+      </div>
 
-  <div class="botoes-centro">
-    <a href="{% url 'pergunta' 1 %}">
-      <button class="botao-responder">Começar o Quiz</button>
-    </a>
+      <!-- Título e Tabela -->
+      <div class="text-center">
+        <h1 class="mb-4">📖 Quiz Bíblico - Flame Sertão</h1>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle shadow-sm bg-white rounded">
+            <tbody>
+              <tr>
+                <th class="bg-primary text-white text-center">📍 Bem-vindo</th>
+                <td>Você está prestes a testar seus conhecimentos nas cartas de Paulo.</td>
+              </tr>
+              <tr>
+                <th class="bg-primary text-white text-center">📘 Sobre o Quiz</th>
+                <td>Perguntas cuidadosamente selecionadas com base bíblica.</td>
+              </tr>
+              <tr>
+                <th class="bg-primary text-white text-center">🎯 Pontuação</th>
+                <td>Cada resposta correta vale <strong>10 pontos</strong>.</td>
+              </tr>
+              <tr>
+                <th class="bg-primary text-white text-center">🏆 Ranking</th>
+                <td>Ao final, você verá sua pontuação e poderá entrar no ranking geral.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="d-grid gap-3 col-6 mx-auto mt-4">
+        <a href="{% url 'pergunta' 1 %}" class="btn btn-success btn-lg">Começar o Quiz</a>
+        <a href="{% url 'painel' %}" class="btn btn-primary btn-lg">Meu Painel</a>
+        <a href="#" class="btn btn-outline-dark">Cadastre-se</a>
+      </div>
+
+    </div>
   </div>
 </div>
 {% endblock %}

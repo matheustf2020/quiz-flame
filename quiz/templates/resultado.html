@@ -1,32 +1,46 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block title %}Resultado do Quiz{% endblock %}
+{% extends "base.html" %}
 
 {% block content %}
-<h1>🎉 Fim do Quiz!</h1>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2>Parabéns, {{ user.username }}!</h2>
+        <p class="lead">Você fez <strong>{{ pontuacao }}</strong> pontos nesta semana!</p>
+    </div>
 
-<p class="pontuacao-final">
-    Sua pontuação final foi: <strong>{{ pontuacao }}</strong> ponto{{ pontuacao|pluralize }}
-</p>
+    <hr>
 
-<div class="botoes-centro">
-    <a href="{% url 'pergunta' 1 %}">
-        <button class="botao-responder">Refazer o Quiz</button>
-    </a>
+    <div class="mt-4">
+        <h3 class="mb-3">🏆 Ranking Geral – Top 5</h3>
+        <table class="table table-striped table-hover text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Usuário</th>
+                    <th>Pontuação Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in ranking %}
+                <tr {% if u.username == user.username %} class="table-success" {% endif %}>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.pontuacao_total }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Nenhuma pontuação registrada ainda.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+      <div class="d-flex justify-content-center gap-2 mt-4">
+        <a href="{% url 'pergunta' 1 %}" class="btn btn-primary">Jogar Novamente</a>
+        <a href="{% url 'painel' %}" class="btn btn-primary">Meu Painel</a>
+      </div>
+      <div class="text-center mt-3">
+        <a href="{% url 'bem_vindo' %}" class="btn btn-secondary">Voltar ao Início</a>
+    </div>
 </div>
-
-<hr>
-
-<h2 class="titulo-ranking">🏆 Ranking - Top 5</h2>
-<ol class="lista-ranking">
-  {% for r in ranking %}
-    <li>
-      <span class="nome-jogador">{{ r.nome }}</span> — 
-      <span class="pontuacao-jogador">{{ r.pontuacao }} pts</span>
-    </li>
-  {% empty %}
-    <p>Nenhum resultado ainda.</p>
-  {% endfor %}
-</ol>
 {% endblock %}

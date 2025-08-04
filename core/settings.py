@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +15,8 @@ SECRET_KEY = 'django-insecure-@xn9xf%be%wyjm9tax^+38ium=s926zgj0nb@4s61x49atq@!8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['trindadev.site', '127.0.0.1', 'https://trindadev.site']
+CSRF_TRUSTED_ORIGINS = ['https://trindadev.site']
 
 
 # Application definition
@@ -94,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -105,11 +107,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'templates/static'),
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    constants.DEBUG: 'alert-primary',
+    constants.ERROR: 'alert-danger',
+    constants.SUCCESS: 'alert-sucess',
+    constants.INFO: 'alert-info',
+    constants.WARNING: 'alert-warning',
+
+}
+
+AUTH_USER_MODEL = "quiz.Usuario"

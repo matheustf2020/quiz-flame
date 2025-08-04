@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2 class="text-center mb-4">Cadastrar</h2>
+    <form method="POST" action="{% url 'cadastrar' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" name="username" class="form-control" id="username" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" name="password" class="form-control" id="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="{% url 'logar' %}" class="btn btn-primary">Fazer Login</a><br>
+    </div>
+    <div class="text-center mt-1">
+        <a href="{% url 'bem_vindo' %}" class="btn btn-secondary">Voltar ao Início</a>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -4,6 +4,7 @@
 {% block title %}Quiz SertãoFlame{% endblock %}
 
 {% block content %}
+<div class="container">
 <h2 class="titulo-pergunta">{{ pergunta.texto }}</h2>
 
 <form method="POST" class="formulario-pergunta">
@@ -17,6 +18,7 @@
       </label>
     {% endfor %}
   </div>
+</div>
 
   <button type="submit" class="botao-responder">Responder</button>
 </form>

@@ -1,80 +1,40 @@
-📌 Versão 2.0 — Quiz Flame Sertão
-Data de lançamento: 04/08/2025
-Responsável: [Matheus - TrindaDev]
+# 📋 CHANGELOG
 
-✅ Funcionalidades novas
-🔐 Sistema de login com autenticação (User)
+Todas as alterações relevantes do projeto **Quiz Flame Sertão** serão listadas aqui.
 
-🎮 Pontuação associada ao usuário logado
+---
 
-🔁 Bloqueio de nova tentativa por 1h após o jogo
+## 🔥 Versão 2.0 – *"Sistema de Pontuação por Usuário"*
 
-📈 Ranking geral atualizado dinamicamente
+📅 Lançamento: 04/08/2025
 
-🧮 Sistema de níveis com base na pontuação total
+### ✅ Adicionado
+- 🧠 Sistema de login com `AbstractUser` personalizado.
+- 🏆 Pontuação total, última pontuação e quantidade de quizzes associadas ao usuário.
+- 🎯 Página de painel do jogador com estatísticas e bio.
+- 🧱 View `resultado_view` agora atualiza dados do usuário logado.
+- 🧑‍💼 Proteção de views com `@login_required`.
 
-👤 Painel do Jogador com dados personalizados:
+### 🎨 Melhorias
+- 💡 Interface do painel redesenhada com Bootstrap 5.
+- 🎨 Fundo azul semi-transparente adicionado nas páginas principais.
+- 📱 Layout mais responsivo em mobile.
+- 📊 Ranking geral harmonizado visualmente com o painel do jogador.
 
-Pontuação total
+### 🐛 Correções
+- 🔒 Ajustes no sistema de autenticação.
+- 📦 Corrigido erro de importação ao trocar para `Usuario` personalizado.
+- 💥 Mensagens do Django agora aparecem com fundo e centralizadas.
 
-Última pontuação
+---
 
-Quantidade de quizzes feitos
+## 📌 Próximo objetivo:
+- [ ] Criar sistema de **níveis com títulos bíblicos** (Discípulo, Servo, Apóstolo...)
+- [ ] Implementar **página de cadastro personalizada**
+- [ ] Melhorar **responsividade** ainda mais com media queries
 
-Nível atual
+---
 
-Bio do usuário
+## 📎 Histórico
+Veja versões anteriores no [repositório](#).
 
-🎨 Melhorias visuais
-Interface 100% reformulada com Bootstrap 5
-
-Cards, botões e blocos estilizados com:
-
-Sombreamento
-
-Arredondamento de bordas (rounded-4)
-
-Paleta harmônica com azul e verde
-
-Adição de área transparente azul para destacar textos
-
-Imagens otimizadas com img-fluid e posicionamento centralizado
-
-Tela inicial com explicação do quiz + botão destacado
-
-Mensagens Django centralizadas com fundo e cor por tipo (alert-success, alert-danger, etc.)
-
-Tabelas estilizadas para ranking e responsividade geral
-
-📱 Responsividade
-Uso intensivo da grid Bootstrap (col-12, col-md-6, etc.)
-
-Remoção de width: 1000px fixos e substituição por max-width com w-100
-
-Ajustes de espaçamento com classes (p-3, mt-4, etc.)
-
-Layouts flexíveis com d-flex e gap-2 para melhor visualização em dispositivos móveis
-
-🔧 Refatorações e melhorias técnicas
-Views atualizadas para uso de request.user e @login_required
-
-Separação lógica entre resultado_view, nome_view, e painel
-
-models.py com campos adicionais no modelo Usuario (pontuação_total, nível, quizzes, bio, etc.)
-
-Otimização de sessões (request.session['pontuacao'])
-
-Redução de divs aninhadas excessivamente
-
-Melhor uso de static para imagens e estilos
-
-📌 Próximos passos (previstos para v2.1 ou v3.0)
-📋 Página de cadastro personalizada
-
-🏷️ Sistema de níveis com nomes (Ex: Discípulo, Servo, Apóstolo)
-
-✨ Personalização de Avatar do usuário
-
-🔧 Admin simplificado para perguntas, usuários e ranking
-
-🧎 Painel de pedidos de oração (integrar com sessão)
